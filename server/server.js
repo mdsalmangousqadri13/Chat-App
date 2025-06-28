@@ -13,6 +13,8 @@ const server = http.createServer(app)  //http.createServer b/c socket.io support
 app.use(express.json({limit: "4mb"}));
 app.use(cors());
 
+
+//Routes setup
 app.use("/api/status", (req,res)=> res.send("server is live"));
 app.use("api/auth", userRouter);
 
