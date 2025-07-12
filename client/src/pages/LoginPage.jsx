@@ -9,7 +9,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [bio, setBio] = useState("")
-    const [isDataSubmitted, setIsDataSubmitted] = useState(false)
+    const [isDataSubmitted, setIsDataSubmitted] = useState(false);
 
     const {login} = useContext(AuthContext)
 
@@ -54,10 +54,10 @@ const LoginPage = () => {
               <>
                <input onChange={(e)=>setEmail(e.target.value)} value={email}
                 type="email" placeholder='Email Address' required className='p-2 border border-gray-500
-               rounded-md focus:outline-none focus:ring-2 focus:rig-indigo-500' />
+               rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500' />
                <input onChange={(e)=>setPassword(e.target.value)} value={password}
                 type="password" placeholder='password' required className='p-2 border border-gray-500
-               rounded-md focus:outline-none focus:ring-2 focus:rig-indigo-500' />
+               rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500' />
               </>
             )}
 
@@ -70,7 +70,7 @@ const LoginPage = () => {
 
             <button type='submit' className='py-3 bg-gradient-to-r from-purple-400 to-violet-600 text-white
             rounded-md cursor-pointer' >
-              {currState === "Sign up" ? "create Account" : "Login Now"}
+              {currState === "Sign up" ? "Create Account" : "Login Now"}
             </button>
 
             <div className='flex items-center gap-2 text-sm text-gray-500' > 
@@ -82,12 +82,11 @@ const LoginPage = () => {
             <div className='flex flex-col gap-2'>
               {currState === "Sign up" ? (
                 <p className='text-sm text-gray-600'>Already have an account?
-                 <span onClick={()=>{setCurrState("login"); setIsDataSubmitted(false)}} 
+                 <span onClick={()=>{setCurrState("Login"); setIsDataSubmitted(false)}} 
                  className='font-medium text-violet-500 cursor-pointer'>Login here</span></p>
               ) : (
                 <p className='text-sm text-gray-600' >Create an account <span onClick={()=> setCurrState("Sign up")} 
-                className='font-medium text-violet-500 
-                cursor-pointer'>click here</span></p>
+                className='font-medium text-violet-500 cursor-pointer'>click here</span></p>
               )}
             </div>
 
