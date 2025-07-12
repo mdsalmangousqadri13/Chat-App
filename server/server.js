@@ -30,14 +30,14 @@ io.on("connection", (socket)=>{
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
     socket.on("disconnect", ()=>{
-        console.log("/user Disconnected", userId);
+        console.log("User Disconnected", userId);
         delete userSocketMap[userId];
         io.emit("getOnlineUsers", Object.keys(userSocketMap))
         
     })
-    
 })
 
+    
 // Middleware setup
 app.use(express.json({limit: "4mb"}));
 app.use(cors());
@@ -45,11 +45,11 @@ app.use(cors());
 
 //Routes setup
 app.use("/api/status", (req, res)=> res.send("server is live"));
-app.use("api/auth", userRouter);
+app.use("/api/auth", userRouter);
 app.use("/api/messages", messageRouter)
 
 // Connect to MongoDb
 await connectDB();
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, ()=> console.log("server is running: " + PORT));
+server.listen(PORT, ()=> console.log("server is running on port: " + PORT));
